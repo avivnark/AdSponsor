@@ -1,24 +1,24 @@
-package com.example.AdSponsor;
+package com.example.AdSponsor.model;
 
 public class Product {
-    private String productSerialNumber;
+    private Long id;
     private String title;
     private String category;
     private double price;
 
-    public Product(String productSerialNumber, String title, String category, double price) {
-        this.productSerialNumber = productSerialNumber;
+    public Product(Long id, String title, String category, double price) {
+        this.id = id;
         this.title = title;
         this.category = category;
         this.price = price;
     }
 
-    public String getProductSerialNumber() {
-        return productSerialNumber;
+    public Long getId() {
+        return id;
     }
 
-    public void setProductSerialNumber(String productSerialNumber) {
-        this.productSerialNumber = productSerialNumber;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {

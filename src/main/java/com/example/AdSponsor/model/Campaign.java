@@ -1,18 +1,20 @@
-package com.example.AdSponsor;
+package com.example.AdSponsor.model;
 import java.time.LocalDate;
 import java.util.List;
 
 public class Campaign {
     private String name;
     private LocalDate startDate;
-    private List<String> productIdentifiers;
+    private List<Long> ids;
     private double bid;
+    private Long id;
 
-    public Campaign(String name, LocalDate startDate, List<String> productIdentifiers, double bid) {
+    public Campaign(String name, LocalDate startDate, List<Long> ids, double bid, long id) {
         this.name = name;
         this.startDate = startDate;
-        this.productIdentifiers = productIdentifiers;
+        this.ids = ids;
         this.bid = bid;
+        this.id = id;
     }
 
     // Getters and setters for all fields
@@ -32,12 +34,12 @@ public class Campaign {
         this.startDate = startDate;
     }
 
-    public List<String> getProductIdentifiers() {
-        return productIdentifiers;
+    public List<Long> getIds() {
+        return ids;
     }
 
-    public void setProductIdentifiers(List<String> productIdentifiers) {
-        this.productIdentifiers = productIdentifiers;
+    public void setIds(List<Long> ids) {
+        this.ids = ids;
     }
 
     public double getBid() {
@@ -46,6 +48,14 @@ public class Campaign {
 
     public void setBid(double bid) {
         this.bid = bid;
+    }
+
+    public double getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public boolean isActive() {
