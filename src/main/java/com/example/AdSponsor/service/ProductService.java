@@ -10,22 +10,15 @@ import java.util.List;
 @Service
 public class ProductService {
 
-    private final ProductRepository productRepository;
-
     @Autowired
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
+    private ProductRepository productRepository;
 
-    public List<Product> findAllProducts() {
-        return productRepository.findAll();
-    }
 
-    public Product findProductById(String id) {
+    public Product getProduct(String id) {
         return productRepository.findById(id).orElse(null);
     }
 
-    public List<Product> findProductsByCategory(String category) {
+    public List<Product> getProductsByCategory(String category) {
         return productRepository.findByCategory(category);
     }
 }

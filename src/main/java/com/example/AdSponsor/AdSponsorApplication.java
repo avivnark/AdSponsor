@@ -1,4 +1,4 @@
-package com.example.AdSponsor.controller;
+package com.example.AdSponsor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

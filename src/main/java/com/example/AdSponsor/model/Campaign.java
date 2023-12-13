@@ -1,6 +1,9 @@
 package com.example.AdSponsor.model;
+import jakarta.persistence.Entity;
+
 import java.time.LocalDate;
 import java.util.List;
+
 
 public class Campaign {
     private String name;
@@ -8,6 +11,9 @@ public class Campaign {
     private List<String> ids;
     private double bid;
     private String id;
+
+    public Campaign() {
+    }
 
     public Campaign(String name, LocalDate startDate, List<String> ids, double bid, String id) {
         this.name = name;
