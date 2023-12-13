@@ -1,23 +1,27 @@
 package com.example.AdSponsor.model;
 
 public class Product {
-    private Long id;
+    private String id;
     private String title;
     private String category;
     private double price;
 
-    public Product(Long id, String title, String category, double price) {
+    public Product() {
+        // Default constructor
+    }
+
+    public Product(String id, String title, String category, double price) {
         this.id = id;
         this.title = title;
         this.category = category;
         this.price = price;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

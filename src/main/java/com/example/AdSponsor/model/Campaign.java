@@ -5,11 +5,11 @@ import java.util.List;
 public class Campaign {
     private String name;
     private LocalDate startDate;
-    private List<Long> ids;
+    private List<String> ids;
     private double bid;
-    private Long id;
+    private String id;
 
-    public Campaign(String name, LocalDate startDate, List<Long> ids, double bid, long id) {
+    public Campaign(String name, LocalDate startDate, List<String> ids, double bid, String id) {
         this.name = name;
         this.startDate = startDate;
         this.ids = ids;
@@ -34,11 +34,11 @@ public class Campaign {
         this.startDate = startDate;
     }
 
-    public List<Long> getIds() {
+    public List<String> getIds() {
         return ids;
     }
 
-    public void setIds(List<Long> ids) {
+    public void setIds(List<String> ids) {
         this.ids = ids;
     }
 
@@ -50,11 +50,11 @@ public class Campaign {
         this.bid = bid;
     }
 
-    public double getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

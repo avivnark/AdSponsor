@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<Product, String> {
     List<Product> findByCategory(@Param("category") String category);
     Product findByProductSerialNumber(@Param("serialNumber") String serialNumber);
     @Query("SELECT p FROM Product p WHERE p.price <= :maxPrice")

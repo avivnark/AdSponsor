@@ -8,9 +8,9 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CampaignRepository extends JpaRepository<Campaign, Long> {
+public interface CampaignRepository extends JpaRepository<Campaign, String> {
     List<Campaign> findByActive(@Param("active") Boolean active);
-    List<Campaign> findByProducts(@Param("productIds") List<Long> productIds);
+    List<Campaign> findByProducts(@Param("productIds") List<String> productIds);
     List<Campaign> findByNameContaining(@Param("name") String name);
     @Query(value = "SELECT c FROM Campaign c WHERE c.startDate BETWEEN :startDateFrom AND :startDateTo")
     List<Campaign> findByStartDateRange(@Param("startDateFrom") Date startDateFrom, @Param("startDateTo") Date startDateTo);
