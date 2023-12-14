@@ -1,10 +1,11 @@
 package com.example.AdSponsor.model;
-import jakarta.persistence.Entity;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Positive;
+import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.data.annotation.Id;
 
+@Table(name = "PRODUCTS")
 public class Product {
-    private String id;
+    @Id
+    private Integer id;
     private String title;
     private String category;
     private double price;
@@ -13,18 +14,17 @@ public class Product {
         // Default constructor
     }
 
-    public Product(String id, String title, String category, double price) {
-        this.id = id;
+    public Product(String title, String category, double price) {
         this.title = title;
         this.category = category;
         this.price = price;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

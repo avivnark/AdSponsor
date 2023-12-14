@@ -1,24 +1,26 @@
 package com.example.AdSponsor.service;
 
 import com.example.AdSponsor.model.Campaign;
+import com.example.AdSponsor.model.Product;
 import com.example.AdSponsor.repository.CampaignRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.AdSponsor.repository.ProductRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDate;
+import java.util.*;
 
 @Service
 public class CampaignService {
 
     private final CampaignRepository campaignRepository;
+    private final ProductRepository productRepository;
 
-    private Map<String, Campaign> dbCampaign = new HashMap<>();
 
+    public CampaignService(CampaignRepository campaignRepository, ProductRepository productRepository) {
+        this.campaignRepository = campaignRepository;
+        this.productRepository = productRepository;
+    }
 
-    @Autowired
+    /*@Autowired
     public CampaignService(CampaignRepository campaignRepository) {
         this.campaignRepository = campaignRepository;
     }
@@ -33,17 +35,41 @@ public class CampaignService {
 
     public List<Campaign> findActiveCampaigns() {
         return campaignRepository.findByActive(true);
+    }*/
+
+    public Iterable<Campaign> getCampaigns() {
+        return campaignRepository.findAll();
     }
 
-    public Map<String, Campaign> get() {
-        return dbCampaign;
+    public Campaign getCampaign(Integer id) {
+        return campaignRepository.findById(id).orElse(null);
     }
 
-    public Campaign get(String id) {
-        return dbCampaign.get(id);
+    public void removeCampaign(Integer id) {
+        campaignRepository.deleteById(id);
     }
 
-    public Campaign remove(String id) {
-        return dbCampaign.remove(id);
+    public Campaign addCampaign(String name, LocalDate startDate, List<Integer> ids, double bid) {
+        Campaign campaign = new Campaign(name, startDate, ids, bid);
+        campaignRepository.save(campaign);
+        return campaign;
+    }
+
+    public Iterable<Product> getProducts() {
+        return productRepository.findAll();
+    }
+
+    public Product getProduct(Integer id) {
+        return productRepository.findById(id).orElse(null);
+    }
+
+    public void removeProduct(Integer id) {
+        productRepository.deleteById(id);
+    }
+
+    public Product addProduct(String title, String category, double price) {
+        Product product = new Product(title, category, price);
+        productRepository.save(product);
+        return product;
     }
 }

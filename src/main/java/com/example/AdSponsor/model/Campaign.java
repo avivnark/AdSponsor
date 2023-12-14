@@ -1,26 +1,31 @@
 package com.example.AdSponsor.model;
-import jakarta.persistence.Entity;
-
+import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.data.annotation.Id;
 import java.time.LocalDate;
 import java.util.List;
 
-
+@Table("CAMPAIGNS")
 public class Campaign {
+
+    @Id
+    private Integer id;
     private String name;
     private LocalDate startDate;
-    private List<String> ids;
+    private List<Integer> ids;
     private double bid;
-    private String id;
 
     public Campaign() {
     }
 
-    public Campaign(String name, LocalDate startDate, List<String> ids, double bid, String id) {
+    public Campaign(String name, LocalDate startDate, List<Integer> ids, double bid) {
         this.name = name;
         this.startDate = startDate;
         this.ids = ids;
         this.bid = bid;
-        this.id = id;
+    }
+
+    public void setId(Integer id) {
+        this.id=id;
     }
 
     // Getters and setters for all fields
@@ -40,11 +45,11 @@ public class Campaign {
         this.startDate = startDate;
     }
 
-    public List<String> getIds() {
+    public List<Integer> getIds() {
         return ids;
     }
 
-    public void setIds(List<String> ids) {
+    public void setIds(List<Integer> ids) {
         this.ids = ids;
     }
 
@@ -56,13 +61,10 @@ public class Campaign {
         this.bid = bid;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public boolean isActive() {
         LocalDate currentDate = LocalDate.now();
