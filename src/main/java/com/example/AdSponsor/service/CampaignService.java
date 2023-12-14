@@ -5,6 +5,8 @@ import com.example.AdSponsor.model.Product;
 import com.example.AdSponsor.repository.CampaignRepository;
 import com.example.AdSponsor.repository.ProductRepository;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -20,23 +22,6 @@ public class CampaignService {
         this.productRepository = productRepository;
     }
 
-    /*@Autowired
-    public CampaignService(CampaignRepository campaignRepository) {
-        this.campaignRepository = campaignRepository;
-    }
-
-    public List<Campaign> findAllCampaigns() {
-        return campaignRepository.findAll();
-    }
-
-    public Campaign findCampaignById(String id) {
-        return campaignRepository.findById(id).orElse(null);
-    }
-
-    public List<Campaign> findActiveCampaigns() {
-        return campaignRepository.findByActive(true);
-    }*/
-
     public Iterable<Campaign> getCampaigns() {
         return campaignRepository.findAll();
     }
@@ -49,7 +34,7 @@ public class CampaignService {
         campaignRepository.deleteById(id);
     }
 
-    public Campaign addCampaign(String name, LocalDate startDate, List<Integer> ids, double bid) {
+    public Campaign addCampaign(String name, LocalDate startDate, List<Integer> ids, BigDecimal bid) {
         Campaign campaign = new Campaign(name, startDate, ids, bid);
         campaignRepository.save(campaign);
         return campaign;
@@ -67,7 +52,7 @@ public class CampaignService {
         productRepository.deleteById(id);
     }
 
-    public Product addProduct(String title, String category, double price) {
+    public Product addProduct(String title, String category, BigDecimal price) {
         Product product = new Product(title, category, price);
         productRepository.save(product);
         return product;

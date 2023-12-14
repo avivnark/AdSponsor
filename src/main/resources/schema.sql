@@ -1,22 +1,21 @@
 CREATE TABLE IF NOT EXISTS CAMPAIGNS (
-    id VARCHAR(50) PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    start_date DATE NOT NULL,
-    bid DECIMAL(10, 2) NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    start_date DATE,
+    bid DECIMAL(10, 2)
 );
 
 CREATE TABLE IF NOT EXISTS PRODUCTS (
-    product_id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255),
     category VARCHAR(100),
-    price DECIMAL(10, 2) NOT NULL,
-    serial_number VARCHAR(50) UNIQUE
+    price DECIMAL(10, 2)
 );
 
-CREATE TABLE IF NOT EXISTS campaign_product (
-    campaign_id VARCHAR(50),
+CREATE TABLE IF NOT EXISTS CAMPAIGN_PRODUCT (
+    campaign_id INT,
     product_id INT,
     PRIMARY KEY (campaign_id, product_id),
-    FOREIGN KEY (campaign_id) REFERENCES campaigns(id),
-    FOREIGN KEY (product_id) REFERENCES products(product_id)
+    FOREIGN KEY (campaign_id) REFERENCES CAMPAIGNS(id),
+    FOREIGN KEY (product_id) REFERENCES PRODUCTS(id)
 );

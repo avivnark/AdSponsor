@@ -1,6 +1,8 @@
 package com.example.AdSponsor.model;
 import org.springframework.data.relational.core.mapping.Table;
 import org.springframework.data.annotation.Id;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -12,12 +14,12 @@ public class Campaign {
     private String name;
     private LocalDate startDate;
     private List<Integer> ids;
-    private double bid;
+    private BigDecimal bid;
 
     public Campaign() {
     }
 
-    public Campaign(String name, LocalDate startDate, List<Integer> ids, double bid) {
+    public Campaign(String name, LocalDate startDate, List<Integer> ids, BigDecimal bid) {
         this.name = name;
         this.startDate = startDate;
         this.ids = ids;
@@ -53,11 +55,11 @@ public class Campaign {
         this.ids = ids;
     }
 
-    public double getBid() {
+    public BigDecimal getBid() {
         return bid;
     }
 
-    public void setBid(double bid) {
+    public void setBid(BigDecimal bid) {
         this.bid = bid;
     }
 
