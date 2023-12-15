@@ -1,4 +1,8 @@
 package com.example.AdSponsor.model;
+<<<<<<< HEAD
+=======
+import org.springframework.data.annotation.Transient;
+>>>>>>> 0b7d5b4 (sql)
 import org.springframework.data.relational.core.mapping.Table;
 import org.springframework.data.annotation.Id;
 
@@ -13,6 +17,10 @@ public class Campaign {
     private Integer id;
     private String name;
     private LocalDate startDate;
+<<<<<<< HEAD
+=======
+    @Transient
+>>>>>>> 0b7d5b4 (sql)
     private List<Integer> ids;
     private BigDecimal bid;
 
@@ -26,6 +34,11 @@ public class Campaign {
         this.bid = bid;
     }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 0b7d5b4 (sql)
     public void setId(Integer id) {
         this.id=id;
     }
