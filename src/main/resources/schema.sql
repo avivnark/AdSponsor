@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 CREATE TABLE IF NOT EXISTS PRODUCTS (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255),
@@ -10,30 +8,10 @@ CREATE TABLE IF NOT EXISTS PRODUCTS (
     INDEX idx_price(price) -- Index on price for optimization
 );
 
->>>>>>> 0b7d5b4 (sql)
 CREATE TABLE IF NOT EXISTS CAMPAIGNS (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255),
     start_date DATE,
-<<<<<<< HEAD
-    bid DECIMAL(10, 2)
-);
-
-CREATE TABLE IF NOT EXISTS PRODUCTS (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255),
-    category VARCHAR(100),
-    price DECIMAL(10, 2)
-);
-
-CREATE TABLE IF NOT EXISTS CAMPAIGN_PRODUCT (
-    campaign_id INT,
-    product_id INT,
-    PRIMARY KEY (campaign_id, product_id),
-    FOREIGN KEY (campaign_id) REFERENCES CAMPAIGNS(id),
-    FOREIGN KEY (product_id) REFERENCES PRODUCTS(id)
-);
-=======
     bid DECIMAL(10, 2),
     active BOOLEAN DEFAULT TRUE, -- Defaulting active status to true
     INDEX idx_active(active), -- Index on active for optimization
@@ -54,5 +32,3 @@ VALUES
     ('Product 2', 'Category B', 15.50, 'P-00002'),
     ('Product 3', 'Category C', 30.75, 'P-00003'),
     ('Product 4', 'Category A', 18.25, 'P-00004');
-
->>>>>>> 0b7d5b4 (sql)
