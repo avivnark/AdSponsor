@@ -65,7 +65,6 @@ public class CampaignService {
         List<Integer> ids = savedCampaign.getIds();
         for (Integer product_id : ids) {
             String sql = "INSERT INTO Campaign_Products (campaign_id, product_id) VALUES (?, ?)";
-            System.out.println(sql);
             jdbcTemplate.update(sql, campaign_id, product_id);
         }
         updateCampaignStatus();
