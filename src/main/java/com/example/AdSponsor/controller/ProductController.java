@@ -1,16 +1,11 @@
 package com.example.AdSponsor.controller;
-
-import com.example.AdSponsor.model.Campaign;
 import com.example.AdSponsor.model.Product;
-import com.example.AdSponsor.repository.CampaignRepository;
 import com.example.AdSponsor.repository.ProductRepository;
 import com.example.AdSponsor.service.CampaignService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.*;
 
 @RestController
 public class ProductController {
@@ -47,10 +42,9 @@ public class ProductController {
     @GetMapping("/ads/serveAd/{category}")
     public Object[] getPromotedProductWithHighestBidByCategory(@PathVariable String category) {
         campaignService.updateCampaignStatus();
+        // Find the promoted product with the highest bid for the specified category
         return productRepository.findPromotedProductWithHighestBidByCategory(category)
                 .orElse(null);
     }
-
-
 
 }

@@ -68,12 +68,4 @@ public class Campaign {
         return id;
     }
 
-
-    public boolean isActive() {
-        LocalDate currentDate = LocalDate.now();
-        LocalDate endDate = startDate.plusDays(10);
-        // Check if the current date falls between the start and end dates of the campaign
-        return currentDate.isAfter(startDate) && currentDate.isBefore(endDate);
-    }
-
 }

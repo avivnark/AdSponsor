@@ -1,7 +1,6 @@
 package com.example.AdSponsor.model;
 import org.springframework.data.relational.core.mapping.Table;
 import org.springframework.data.annotation.Id;
-
 import java.math.BigDecimal;
 
 @Table(name = "PRODUCTS")
