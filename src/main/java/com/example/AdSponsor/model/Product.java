@@ -11,29 +11,17 @@ public class Product {
     private String title;
     private String category;
     private BigDecimal price;
-<<<<<<< HEAD
-=======
     private String serial_number;
-
->>>>>>> 0b7d5b4 (sql)
 
     public Product() {
         // Default constructor
     }
 
-<<<<<<< HEAD
-    public Product(String title, String category, BigDecimal price) {
+    public Product(String title, String category, BigDecimal price, String serial_number) {
         this.title = title;
         this.category = category;
         this.price = price;
-=======
-    public Product(Integer id, String title, String category, BigDecimal price, String serialNumber) {
-        this.id=id;
-        this.title = title;
-        this.category = category;
-        this.price = price;
-        serial_number = serialNumber;
->>>>>>> 0b7d5b4 (sql)
+        this.serial_number = serial_number;
     }
 
     public Integer getId() {
@@ -67,8 +55,6 @@ public class Product {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
-<<<<<<< HEAD
-=======
 
     // Getter method to retrieve the value of serial_number
     public String getSerialNumber() {
@@ -79,8 +65,5 @@ public class Product {
     public void setSerialNumber(String newSerialNumber) {
         this.serial_number = newSerialNumber;
     }
-
-
->>>>>>> 0b7d5b4 (sql)
 }
 

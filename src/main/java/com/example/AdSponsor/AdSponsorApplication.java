@@ -9,9 +9,5 @@ public class AdSponsorApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AdSponsorApplication.class, args);
 	}
-<<<<<<< HEAD
 
 }
-=======
-}
->>>>>>> 0b7d5b4 (sql)
