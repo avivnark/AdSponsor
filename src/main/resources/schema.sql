@@ -18,6 +18,8 @@ CREATE TABLE IF NOT EXISTS CAMPAIGNS (
     INDEX idx_start_date(start_date) -- Index on start_date for optimization
 );
 
+
+
 CREATE TABLE  IF NOT EXISTS Campaign_Products (
     campaign_id INT NOT NULL,
     product_id INT NOT NULL,
@@ -28,7 +30,12 @@ CREATE TABLE  IF NOT EXISTS Campaign_Products (
 
 INSERT INTO PRODUCTS (title, category, price, serial_number)
 VALUES
-    ('Product 1', 'Category A', 25.00, 'P-00001'),
-    ('Product 2', 'Category B', 15.50, 'P-00002'),
-    ('Product 3', 'Category C', 30.75, 'P-00003'),
-    ('Product 4', 'Category A', 18.25, 'P-00004');
+    ('Product 1', 'A', 25.00, 'P-00001'),
+    ('Product 2', 'B', 15.50, 'P-00002'),
+    ('Product 3', 'C', 30.75, 'P-00003'),
+    ('Product 4', 'A', 18.25, 'P-00004');
+
+
+
+
+

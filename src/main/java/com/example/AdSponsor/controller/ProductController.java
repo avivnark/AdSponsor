@@ -2,8 +2,11 @@ package com.example.AdSponsor.controller;
 
 import com.example.AdSponsor.model.Campaign;
 import com.example.AdSponsor.model.Product;
+import com.example.AdSponsor.repository.CampaignRepository;
+import com.example.AdSponsor.repository.ProductRepository;
 import com.example.AdSponsor.service.CampaignService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -13,9 +16,13 @@ import java.util.*;
 public class ProductController {
 
     private final CampaignService campaignService;
+    private final ProductRepository productRepository;
+    private final CampaignRepository campaignRepository;
 
-    public ProductController(CampaignService campaignService) {
+    public ProductController(CampaignService campaignService, ProductRepository productRepository, CampaignRepository campaignRepository) {
         this.campaignService = campaignService;
+        this.productRepository = productRepository;
+        this.campaignRepository = campaignRepository;
     }
 
 
@@ -38,6 +45,13 @@ public class ProductController {
     public Iterable<Product> GetProducts(){
         return campaignService.getProducts();
     }
+
+    @GetMapping("/ads/serveAd/{category}")
+    public Object[] getPromotedProductWithHighestBidByCategory(@PathVariable String category) {
+        return productRepository.findPromotedProductWithHighestBidByCategory(category)
+                .orElse(null); // Return null or handle Optional as needed
+    }
+
 
 
 }

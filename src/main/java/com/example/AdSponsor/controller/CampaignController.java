@@ -6,10 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.List;
-
 
 @RestController
 public class CampaignController {
@@ -48,7 +44,7 @@ public class CampaignController {
     @PostMapping("/campaigns/add")
     @ResponseStatus(HttpStatus.CREATED)
     public Campaign createCampaign(@RequestBody Campaign campaign) {
-        return campaignService.createCampaignWithProducts(campaign, campaign.getIds());
+        return campaignService.createCampaignWithProducts(campaign);
     }
 
 

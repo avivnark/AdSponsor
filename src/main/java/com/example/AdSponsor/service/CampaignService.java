@@ -56,19 +56,16 @@ public class CampaignService {
         productRepository.deleteById(id);
     }
 
-    private void associateCampaignWithProduct(Integer campaignId, Integer productId) {
-        String sql = "INSERT INTO Campaign_Products (campaign_id, product_id) VALUES (?, ?)";
-        jdbcTemplate.update(sql, campaignId, productId);
-    }
 
-    public Campaign createCampaignWithProducts(Campaign campaign, List<Integer> ids) {
+    public Campaign createCampaignWithProducts(Campaign campaign) {
         Campaign savedCampaign = campaignRepository.save(campaign);
         int campaign_id = savedCampaign.getId();
-
-        for (Integer product : ids) {
-            associateCampaignWithProduct(campaign_id, product);
+        List<Integer> ids = savedCampaign.getIds();
+        for (Integer product_id : ids) {
+            String sql = "INSERT INTO Campaign_Products (campaign_id, product_id) VALUES (?, ?)";
+            System.out.println(sql);
+            jdbcTemplate.update(sql, campaign_id, product_id);
         }
-
         return savedCampaign;
     }
 }
