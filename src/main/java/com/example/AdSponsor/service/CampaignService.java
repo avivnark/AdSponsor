@@ -38,10 +38,12 @@ public class CampaignService {
         campaignRepository.deleteById(id);
     }
 
-    public Campaign addCampaign(String name, LocalDate startDate, List<Integer> ids, BigDecimal bid) {
-        Campaign campaign = new Campaign(name, startDate, ids, bid);
-        campaignRepository.save(campaign);
-        return campaign;
+
+    public void updateCampaignStatus() {
+        LocalDate tenDaysAgo = LocalDate.now().minusDays(10);
+        // SQL query to update the statuses of campaigns where start_date is before tenDaysAgo
+        String sql = "UPDATE campaigns SET active = FALSE WHERE start_date <= ?";
+        jdbcTemplate.update(sql, tenDaysAgo);
     }
 
     public Iterable<Product> getProducts() {
@@ -66,6 +68,7 @@ public class CampaignService {
             System.out.println(sql);
             jdbcTemplate.update(sql, campaign_id, product_id);
         }
+        updateCampaignStatus();
         return savedCampaign;
     }
 }

@@ -28,6 +28,7 @@ CREATE TABLE  IF NOT EXISTS Campaign_Products (
     FOREIGN KEY (product_id) REFERENCES Products(id)
 );
 
+
 INSERT INTO PRODUCTS (title, category, price, serial_number)
 VALUES
     ('Product 1', 'A', 25.00, 'P-00001'),

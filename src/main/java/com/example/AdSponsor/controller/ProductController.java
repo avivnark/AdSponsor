@@ -17,12 +17,10 @@ public class ProductController {
 
     private final CampaignService campaignService;
     private final ProductRepository productRepository;
-    private final CampaignRepository campaignRepository;
 
-    public ProductController(CampaignService campaignService, ProductRepository productRepository, CampaignRepository campaignRepository) {
+    public ProductController(CampaignService campaignService, ProductRepository productRepository) {
         this.campaignService = campaignService;
         this.productRepository = productRepository;
-        this.campaignRepository = campaignRepository;
     }
 
 
@@ -48,8 +46,9 @@ public class ProductController {
 
     @GetMapping("/ads/serveAd/{category}")
     public Object[] getPromotedProductWithHighestBidByCategory(@PathVariable String category) {
+        campaignService.updateCampaignStatus();
         return productRepository.findPromotedProductWithHighestBidByCategory(category)
-                .orElse(null); // Return null or handle Optional as needed
+                .orElse(null);
     }
 
 

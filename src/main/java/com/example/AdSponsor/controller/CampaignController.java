@@ -24,6 +24,7 @@ public class CampaignController {
 
     @GetMapping("/campaigns/{id}")
     public Campaign GetCampaign(@PathVariable Integer id){
+        campaignService.updateCampaignStatus();
         Campaign campaign = campaignService.getCampaign(id);
         if(campaign == null){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
