@@ -3,8 +3,11 @@ import com.example.AdSponsor.model.Campaign;
 import com.example.AdSponsor.model.Product;
 import com.example.AdSponsor.repository.CampaignRepository;
 import com.example.AdSponsor.repository.ProductRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
 import java.time.LocalDate;
 import java.util.*;
 
@@ -68,4 +71,5 @@ public class CampaignService {
         updateCampaignStatus();
         return savedCampaign;
     }
+
 }

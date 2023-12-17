@@ -44,7 +44,15 @@ public class CampaignController {
     @PostMapping("/campaigns/add")
     @ResponseStatus(HttpStatus.CREATED)
     public Campaign createCampaign(@RequestBody Campaign campaign) {
-        return campaignService.createCampaignWithProducts(campaign);
+        try {
+            Campaign createdCampaign = campaignService.createCampaignWithProducts(campaign);
+            if (createdCampaign == null) {
+                throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to create the campaign");
+            }
+            return createdCampaign;
+        } catch (Exception ex) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Name, start date, and bid amount are required", ex);
+        }
     }
 
 

@@ -1,18 +1,18 @@
 CREATE TABLE IF NOT EXISTS PRODUCTS (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255),
-    category VARCHAR(255),
-    price DECIMAL(10, 2),
-    serial_number VARCHAR(20),
+    title VARCHAR(255) NOT NULL,
+    category VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    serial_number VARCHAR(20) NOT NULL,
     INDEX idx_category(category), -- Index on category for optimization
     INDEX idx_price(price) -- Index on price for optimization
 );
 
 CREATE TABLE IF NOT EXISTS CAMPAIGNS (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255),
-    start_date DATE,
-    bid DECIMAL(10, 2),
+    name VARCHAR(255) NOT NULL,
+    start_date DATE NOT NULL,
+    bid DECIMAL(10, 2) NOT NULL,
     active BOOLEAN DEFAULT TRUE, -- Defaulting active status to true
     INDEX idx_active(active), -- Index on active for optimization
     INDEX idx_start_date(start_date) -- Index on start_date for optimization
