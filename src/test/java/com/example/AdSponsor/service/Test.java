@@ -5,7 +5,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 import com.example.AdSponsor.model.Campaign;
 import com.example.AdSponsor.repository.CampaignRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class testproject {
+public class Test {
 
     @Autowired
     private MockMvc mockMvc;
@@ -34,7 +33,7 @@ public class testproject {
     @Autowired
     private CampaignRepository campaignRepository;
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void testAddCampaign() throws Exception {
         Campaign campaign = new Campaign();
         int length = 10;
@@ -57,7 +56,7 @@ public class testproject {
         assertEquals("name ok",randomName, addedCampaign.getName());
 
     }
-    @Test
+    @org.junit.jupiter.api.Test
     public void testAddCampaignNameMissing() throws Exception {
         Campaign campaign = new Campaign();
         // campaign.setName("Test Campaign"); // Omitting setting the name intentionally
@@ -72,7 +71,7 @@ public class testproject {
                         .content(campaignJson))
                 .andExpect(status().isBadRequest()); // Assuming a bad request will be triggered due to missing name
     }
-    @Test
+    @org.junit.jupiter.api.Test
     public void testCampaignWithMissingId() throws Exception {
         Campaign campaign = new Campaign();
         int length = 10;
@@ -90,7 +89,7 @@ public class testproject {
                 .andExpect(status().isBadRequest());
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void testGetPromotedProductWithHighestBidByCategory() throws Exception {
         // Add a campaign
         Campaign campaign = new Campaign();
@@ -114,7 +113,7 @@ public class testproject {
                 .andExpect(status().isOk());
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void testIfNotGetting() throws Exception {
         // Add a campaign
         Campaign campaign = new Campaign();
@@ -138,7 +137,7 @@ public class testproject {
                 .andExpect(status().isOk());
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void testRightResult() throws Exception {
         // Add campaigns
         Campaign campaign1 = createCampaign("Campaign 1", 15.0, LocalDate.now(), Arrays.asList(1,8));
