@@ -31,10 +31,17 @@ CREATE TABLE  IF NOT EXISTS Campaign_Products (
 
 INSERT INTO PRODUCTS (title, category, price, serial_number)
 VALUES
-    ('Product 1', 'A', 25.00, 'P-00001'),
-    ('Product 2', 'B', 15.50, 'P-00002'),
-    ('Product 3', 'C', 30.75, 'P-00003'),
-    ('Product 4', 'A', 18.25, 'P-00004');
+    ('Premium Smartphone', 'Electronics', 799.99, 'P-00123'),
+    ('Designer Watch', 'Fashion', 499.50, 'P-00234'),
+    ('High-Performance Laptop', 'Electronics', 1299.99, 'P-00345'),
+    ('Professional Camera', 'Electronics', 1499.75, 'P-00456'),
+    ('Luxury Handbag', 'Fashion', 799.25, 'P-00567'),
+    ('Gourmet Coffee Maker', 'Home & Kitchen', 399.99, 'P-00678'),
+    ('Fitness Tracker', 'Health & Fitness', 159.50, 'P-00789'),
+    ('Smart Home Speaker System', 'Electronics', 299.50, 'P-00890'),
+    ('Stylish Sunglasses', 'Fashion', 199.25, 'P-00901'),
+    ('Gaming Console', 'Electronics', 499.99, 'P-01012');
+
 
 
 

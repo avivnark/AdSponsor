@@ -5,6 +5,5 @@ import java.util.List;
 
 
 public interface CampaignRepository extends CrudRepository<Campaign, Integer> {
-
     Campaign findByName(String testCampaign);
 }
